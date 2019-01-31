@@ -1,0 +1,66 @@
+.card {
+  width: 308px;
+  padding: 0;
+  border: 2px solid #e1e1e1;
+}
+
+.cardImage{
+  width: 100%;
+
+}
+.cardEntry{
+  padding:19px;
+ 
+}
+.cardText{
+
+}
+.cardHeading{
+display: flex;
+flex-direction: row;
+}
+
+.cardHeading img{
+  
+height: 50px;
+padding-right:10px; 
+}
+.cardTitle{
+  width:80%;
+}
+
+
+.cardTitle h1{
+  margin: 0;
+color: #3A3A3A;
+font-size: 23px;  
+font-family: Arial;
+font-weight: "bold";
+
+
+}
+.cardTitle h2{
+  margin: 0;
+  width:100%;
+  text-transform: uppercase;
+  color: #adadad;
+
+  font-size: 12px;  
+  font-family: Arial;
+  font-weight: "bold"; 
+}
+.cardText p{
+  color: #3A3A3A;
+  font-size: 12px;  
+  font-family: Arial;
+  font-weight: "bold";
+  padding-top: 19px;
+  padding-bottom: 19px;
+  margin: 0;
+}
+
+.heart{
+  height: 20px;
+}
+
+

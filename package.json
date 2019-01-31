@@ -1,0 +1,20 @@
+{
+  "name": "mindera-card-slider-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start-api": "json-server --port 3001 --watch --static none data/db.json"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "json-server": "^0.12.2",
+    "react-scripts": "^1.1.4"
+  }
+}
