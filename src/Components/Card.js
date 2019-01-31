@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as api from '../api'
 
 /*
   {
@@ -13,6 +14,26 @@ import React, { Component } from "react";
 */
 
 export default class Card extends Component {
+
+  // componentDidMount=()=>
+  // {
+  //   this.setState({liked:})
+    
+  // }
+
+  
+
+  state={
+    liked:true
+    
+
+  }
+
+  setLike=  (id,is_liked)=>{
+   this.setState({liked:is_liked},()=>{api.likeCard(id,is_liked)})
+
+    }
+
   render() {
     const tmpCardInfo = {
       id: 1,
@@ -24,31 +45,44 @@ export default class Card extends Component {
       href: "https://mindera.com/people-and-culture/we-are-humans/",
       is_liked: true
     };
-    const { title, subtitle, text, image_url, href, is_liked } = tmpCardInfo;
-
+    const { id,title, subtitle, text, image_url, href, is_liked } = tmpCardInfo;
+    //this.setState({liked:is_liked})
     return (
       <div className="card">
         {/* {Object.keys(tmpCardInfo).map(cardEntry => {
           console.log(tmpCardInfo[cardEntry]);
         })} */}
-              
 
-        <img className="cardImage" src={tmpCardInfo.image_url} />
-        
+        <a href={href}>
+          <img className="cardImage" src={tmpCardInfo.image_url} />
+        </a>
+
         <div className="cardEntry">
-        
-        <div className="cardHeading">
-        <img  src={require("../assets/avatar.png")} />
-          <div className="cardTitle">
-            <h1>{title}</h1>
-            <h2>{subtitle}</h2>
-          </div>
+          <a href={href}>
+            <div className="cardHeading">
+              <img src={require("../assets/avatar.png")} />
+              <div className="cardTitle">
+                <h1>{title}</h1>
+                <h2>{subtitle}</h2>
+              </div>
+            </div>
+            <div className="cardText">
+              <p>{text}</p>
+            </div>
+          </a>
+
+          {this.state.liked?
+        <button type="button" onClick={()=>{this.setLike(id,false)}}>
+        <img className="heart" src={require("../assets/heart.png")} />
+        </button>:  
+        <button type="button" onClick={()=>{this.setLike(id,true)}}>
+        <img className="heart" src={require("../assets/emptyHeart.png")} />
+        </button>
+        }
+          {/* <button type="button" onClick={()=>{this.setLike(id,!is_liked)}}>
+           <img className="heart" src={require("../assets/emptyHeart.png")} />
+           </button> */}
         </div>
-        <div className="cardText">
-          <p>{text}</p>
-        </div>
-        <img className="heart" src={require("../assets/emptyHeart.png")}/>
-      </div>
       </div>
     );
   }

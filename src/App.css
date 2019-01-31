@@ -3,6 +3,9 @@
   padding: 0;
   border: 2px solid #e1e1e1;
 }
+.card a{
+  text-decoration: none
+}
 
 .cardImage{
   width: 100%;
@@ -61,6 +64,12 @@ font-weight: "bold";
 
 .heart{
   height: 20px;
+}
+
+.card button{
+
+ all:unset
+ 
 }
 
 
