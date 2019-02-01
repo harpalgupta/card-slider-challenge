@@ -13,7 +13,6 @@ return data;
  export const  likeCard=async(id,is_liked)=>{
   const url= `${BASEURL}/${id}`
   const {data}=await axios.patch(url,{is_liked:is_liked});
-  console.log(data)
 return data;
 
 }

@@ -15,17 +15,17 @@ import * as api from '../api'
 
 export default class Card extends Component {
 
-  // componentDidMount=()=>
-  // {
-  //   this.setState({liked:})
-    
-  // }
+npm
 
   
 
   state={
     liked:true
     
+
+  }
+
+  getCards= ()=>{
 
   }
 
