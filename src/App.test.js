@@ -16,19 +16,37 @@ const reSeedDatbase = () => {
       if (err) console.log(err);
     }
   );
+  return 'reseeded'
 };
 
 //after all tests re-seed database
-afterAll(() => {
-  reSeedDatbase();
-});
 
-describe("React Tests", () => {
-  it("renders without crashing", () => {});
-});
 
-describe("check Api calls", () => {
-  it("retrieves 9 cards from api fetch", async () => {
+
+
+
+// describe("React Tests", () => {
+//   beforeAll(async() => {
+
+//     const reseeded = await reSeedDatbase();
+//     setTimeout(()=>{
+      
+//       console.log(reseeded,'timeout');
+//     },5000);
+//   },10000);
+//   it("renders without crashing", () => {});
+// });
+
+  beforeAll(async() => {
+
+    const reseeded = await reSeedDatbase();
+    setTimeout(()=>{
+      
+      console.log(reseeded,'timeout');
+    },5000);
+  },10000);
+
+  test("retrieves 9 cards from api fetch", async () => {
     return api.fetchCards().then(data => {
       expect(Array.isArray(data)).toBe(true);
       expect(data).toHaveLength(9);
@@ -38,7 +56,7 @@ describe("check Api calls", () => {
 
 
 
-  it("retrieves 3 cards from api fetch when given range", async () => {
+  test("retrieves 3 cards from api fetch when given range", async () => {
     return api.fetchCards(2,5).then(data => {
       expect(Array.isArray(data)).toBe(true);
       expect(data).toHaveLength(3);
@@ -58,4 +76,4 @@ describe("check Api calls", () => {
 
 
 
-});
+

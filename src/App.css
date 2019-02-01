@@ -4,17 +4,23 @@
   border: 2px solid #e1e1e1;
   margin-top: 26px;
   margin-bottom: 26px;
+  height: 374px
+
+
 }
 .card a{
   text-decoration: none
 }
 
 .cardImage{
-  width: 100%;
+  background-image: url('./assets/temp.png');
+  min-height: 150px;
+  min-width: 100%;
 
 }
 .cardEntry{
-  padding:19px;
+
+  padding:19px 19px 5px 19px
  
 }
 
@@ -25,6 +31,7 @@ flex-direction: row;
 
 .cardHeading img{
   
+
 height: 50px;
 padding-right:10px; 
 }
@@ -66,7 +73,7 @@ font-weight: "bold";
   height: 20px;
 }
 
-.card button{
+ button{
 
  all:unset
  
@@ -90,16 +97,36 @@ font-weight: "bold";
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-
+  padding-left:26px;
+  padding-right:26px;
+  
+ 
+  
   
 }
 .navigation{
   display: flex;
   justify-content: center;
+  padding-bottom: 26px
   
 }
 .middleCard{
   padding-left: 26px;
   padding-right: 26px;
+  
+
+}
+
+.canvas{
+  display: inline-block;
+
+  border: 2px solid  rgb(206, 206, 206);
+  width: fit-content; 
+
+}
+
+.hiddenButton{
+  display: none;
+
 }
 

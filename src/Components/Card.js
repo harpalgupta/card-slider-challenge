@@ -36,6 +36,8 @@ componentDidMount(){
 
     }
 
+    
+
   render() {
     const {card} =this.props;
     const tmpCardInfo =card;
@@ -58,7 +60,7 @@ componentDidMount(){
         })} */}
 
         <a href={href}>
-          <img className="cardImage" src={`${tmpCardInfo.image_url}&${id}`} />
+          <img className="cardImage" src={`${tmpCardInfo.image_url}&${id}`} onerror={require("../assets/emptyHeart.png") } />
         </a>
 
         <div className="cardEntry">
