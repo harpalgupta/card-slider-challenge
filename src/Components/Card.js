@@ -20,14 +20,16 @@ npm
   
 
   state={
-    liked:true
+    liked:false
     
 
   }
+componentDidMount(){
+  const {card} =this.props;
 
-  getCards= ()=>{
+  this.setState({liked:card.is_liked})
+}
 
-  }
 
   setLike=  (id,is_liked)=>{
    this.setState({liked:is_liked},()=>{api.likeCard(id,is_liked)})
@@ -35,16 +37,18 @@ npm
     }
 
   render() {
-    const tmpCardInfo = {
-      id: 1,
-      title: 'Humans are not "resources"',
-      subtitle: "And we love humans",
-      text:
-        "We act like humans, we talk like humans, and we think like humans. And we call out anyone who does the opposite.",
-      image_url: "https://picsum.photos/300/150/?random",
-      href: "https://mindera.com/people-and-culture/we-are-humans/",
-      is_liked: true
-    };
+    const {card} =this.props;
+    const tmpCardInfo =card;
+    // const tmpCardInfo = {
+    //   id: 1,
+    //   title: 'Humans are not "resources"',
+    //   subtitle: "And we love humans",
+    //   text:
+    //     "We act like humans, we talk like humans, and we think like humans. And we call out anyone who does the opposite.",
+    //   image_url: "https://picsum.photos/300/150/?random",
+    //   href: "https://mindera.com/people-and-culture/we-are-humans/",
+    //   is_liked: true
+    // };
     const { id,title, subtitle, text, image_url, href, is_liked } = tmpCardInfo;
     //this.setState({liked:is_liked})
     return (
@@ -54,7 +58,7 @@ npm
         })} */}
 
         <a href={href}>
-          <img className="cardImage" src={tmpCardInfo.image_url} />
+          <img className="cardImage" src={`${tmpCardInfo.image_url}&${id}`} />
         </a>
 
         <div className="cardEntry">

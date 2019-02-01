@@ -3,7 +3,7 @@ const BASEURL = "http://localhost:3001/cards";
 
 export const fetchCards = async (start, end) => {
   let url = "";
-  if (start && end) {
+  if (start>=0 && end>=0) {
     url = `${BASEURL}/?_start=${start}&_end=${end}`;
   } else {
     url = `${BASEURL}/`;

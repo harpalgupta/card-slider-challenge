@@ -2,6 +2,8 @@
   width: 308px;
   padding: 0;
   border: 2px solid #e1e1e1;
+  margin-top: 26px;
+  margin-bottom: 26px;
 }
 .card a{
   text-decoration: none
@@ -15,9 +17,7 @@
   padding:19px;
  
 }
-.cardText{
 
-}
 .cardHeading{
 display: flex;
 flex-direction: row;
@@ -72,4 +72,34 @@ font-weight: "bold";
  
 }
 
+.direction-buttons{
+  width:40px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.direction-buttons img{
+
+  padding-left: 2px;
+  padding-right: 2px;
+  width:15px
+
+}
+
+.deck{
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+
+  
+}
+.navigation{
+  display: flex;
+  justify-content: center;
+  
+}
+.middleCard{
+  padding-left: 26px;
+  padding-right: 26px;
+}
 
