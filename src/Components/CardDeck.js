@@ -37,7 +37,7 @@ export default class CardDeck extends Component {
 
 
   checkReachedEnd=async()=>{
-    const { start, end, reachedEnd } = this.state;
+    const { start, end } = this.state;
 
     const nextStart= start + 3
     const nextEnd= end + 3
@@ -67,23 +67,25 @@ export default class CardDeck extends Component {
       <div className="canvas">
         <div className="deck">
           {cards.map((card, index) =>
-            index === 1 ? (
+
+            (index === 1) ? (
               <div className="middleCard">
                 {" "}
                 <Card key={card.id} card={card} />
               </div>
             ) : (
-              <Card key={card.id} card={card} />
+               <Card key={card.id} card={card} />
             )
+
           )}
         </div>
         <div className="navigation">
           <div className="direction-buttons">
           <button className={start===0?"hiddenButton":"somethingElse"} type="button" onClick={()=>this.changePage("left")}>
-            <img src={require("../assets/left.png")} />
+            <img alt="left button" src={require("../assets/left.png")} />
             </button>
             <button className={reachedEnd?"hiddenButton":"somethingElse"} type="button" onClick={()=>this.changePage("right")}  disabled={reachedEnd}>
-            <img src={require("../assets/right.png")} />
+            <img alt="right button" src={require("../assets/right.png")} />
             </button>
 
           </div>

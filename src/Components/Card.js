@@ -1,17 +1,7 @@
 import React, { Component } from "react";
 import * as api from '../api'
 
-/*
-  {
-    "id": 1,
-    "title": "We are Humans",
-    "subtitle": "And we love humans",
-    "text": "We act like humans, we talk like humans, and we think like humans. And we call out anyone who does the opposite.",
-    "image_url": "https://picsum.photos/300/150/?random",
-    "href": "https://mindera.com/people-and-culture/we-are-humans/",
-    "is_liked": true
-  }
-*/
+
 
 export default class Card extends Component {
 
@@ -40,33 +30,19 @@ componentDidMount(){
 
   render() {
     const {card} =this.props;
-    const tmpCardInfo =card;
-    // const tmpCardInfo = {
-    //   id: 1,
-    //   title: 'Humans are not "resources"',
-    //   subtitle: "And we love humans",
-    //   text:
-    //     "We act like humans, we talk like humans, and we think like humans. And we call out anyone who does the opposite.",
-    //   image_url: "https://picsum.photos/300/150/?random",
-    //   href: "https://mindera.com/people-and-culture/we-are-humans/",
-    //   is_liked: true
-    // };
-    const { id,title, subtitle, text, image_url, href, is_liked } = tmpCardInfo;
-    //this.setState({liked:is_liked})
+   
+    const { id,title, subtitle, text, image_url, href } = card;
     return (
       <div className="card">
-        {/* {Object.keys(tmpCardInfo).map(cardEntry => {
-          console.log(tmpCardInfo[cardEntry]);
-        })} */}
-
+    
         <a href={href}>
-          <img className="cardImage" src={`${tmpCardInfo.image_url}&${id}`} onerror={require("../assets/emptyHeart.png") } />
+          <img alt="card header" className="cardImage" src={`${image_url}&${id}`} onerror={require("../assets/temp.png") } />
         </a>
 
         <div className="cardEntry">
           <a href={href}>
             <div className="cardHeading">
-              <img src={require("../assets/avatar.png")} />
+              <img alt="avatar" src={require("../assets/avatar.png")} />
               <div className="cardTitle">
                 <h1>{title}</h1>
                 <h2>{subtitle}</h2>
@@ -79,15 +55,13 @@ componentDidMount(){
 
           {this.state.liked?
         <button type="button" onClick={()=>{this.setLike(id,false)}}>
-        <img className="heart" src={require("../assets/heart.png")} />
+        <img alt="liked heart" className="heart" src={require("../assets/heart.png")} />
         </button>:  
         <button type="button" onClick={()=>{this.setLike(id,true)}}>
-        <img className="heart" src={require("../assets/emptyHeart.png")} />
+        <img alt="unliked heart" className="heart" src={require("../assets/emptyHeart.png")} />
         </button>
         }
-          {/* <button type="button" onClick={()=>{this.setLike(id,!is_liked)}}>
-           <img className="heart" src={require("../assets/emptyHeart.png")} />
-           </button> */}
+        
         </div>
       </div>
     );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './Components/Card';
 import CardDeck from './Components/CardDeck';
 
 

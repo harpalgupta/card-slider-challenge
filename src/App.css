@@ -4,10 +4,23 @@
   border: 2px solid #e1e1e1;
   margin-top: 26px;
   margin-bottom: 26px;
-  height: 374px
+  height: 380px;
+
+  
 
 
 }
+.fadeIn {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+  }
+
+  .fadeIn:hover {
+     opacity: 0.5;
+     }
+
 .card a{
   text-decoration: none
 }
@@ -122,11 +135,12 @@ font-weight: "bold";
 
   border: 2px solid  rgb(206, 206, 206);
   width: fit-content; 
+  background-color: #f6f6f6
 
 }
 
 .hiddenButton{
-  display: none;
+  visibility: hidden;
 
 }
 
