@@ -7,7 +7,6 @@ const path = require("path");
 
 //function to re-seed database/json
 const reSeedDatbase = () => {
-
   fs.copyFileSync(
     path.resolve(__dirname, "../data/originalDB.json"),
     path.resolve(__dirname, "../data/db.json"),
@@ -16,64 +15,50 @@ const reSeedDatbase = () => {
       if (err) console.log(err);
     }
   );
-  return 'reseeded'
+  console.log("reseeded");
+  return "reseeded";
 };
 
 //after all tests re-seed database
 
+describe("React Tests", () => {
+ 
+  it("renders without crashing", () => {});
+});
 
-
-
-
-// describe("React Tests", () => {
-//   beforeAll(async() => {
-
-//     const reseeded = await reSeedDatbase();
-//     setTimeout(()=>{
+describe("function tests", function() {
+  beforeAll(function(done) {
+    reSeedDatbase();
+    new Promise(function(resolve) {
+      setTimeout(resolve, 100);
+    }).then(function() {
       
-//       console.log(reseeded,'timeout');
-//     },5000);
-//   },10000);
-//   it("renders without crashing", () => {});
-// });
+      done();
+    });
+  }, 20000);
 
-  beforeAll(async() => {
+  describe("api tests", function() {
+  
 
-    const reseeded = await reSeedDatbase();
-    setTimeout(()=>{
+    it("retrieves 9 cards from api fetch", async () => {
+      return api.fetchCards().then(data => {
+        expect(Array.isArray(data)).toBe(true);
+        expect(data).toHaveLength(9);
+        expect(data[0].is_liked).toBe(true);
+      });
+    });
+
+    it("retrieves 3 cards from api fetch when given range", async () => {
+      return api.fetchCards(2, 5).then(data => {
+        expect(Array.isArray(data)).toBe(true);
+        expect(data).toHaveLength(3);
+      });
+    });
+
+    it("patch like", async () => {
+          const result = await api.likeCard(1, false);
       
-      console.log(reseeded,'timeout');
-    },5000);
-  },10000);
-
-  test("retrieves 9 cards from api fetch", async () => {
-    return api.fetchCards().then(data => {
-      expect(Array.isArray(data)).toBe(true);
-      expect(data).toHaveLength(9);
-      expect(data[0].is_liked).toBe(true);
-    });
+          expect(result.is_liked).toBe(false);
+        });
   });
-
-
-
-  test("retrieves 3 cards from api fetch when given range", async () => {
-    return api.fetchCards(2,5).then(data => {
-      expect(Array.isArray(data)).toBe(true);
-      expect(data).toHaveLength(3);
-    });
-  });
-
-
-
-
-  it("patch like", async () => {
-    const result = await api.likeCard(1, false);
-
-    expect(result.is_liked).toBe(false);
-  });
-
-
-
-
-
-
+});
