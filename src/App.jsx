@@ -3,17 +3,13 @@ import './App.css';
 import CardDeck from './Components/CardDeck';
 
 
-
-
 class App extends Component {
+  state={}
+
   render() {
     return (
-      <div>     
-         
-         <CardDeck/>
-
-         {/* <Card /> */}
-
+      <div>
+        <CardDeck />
       </div>
 
 
