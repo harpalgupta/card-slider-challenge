@@ -1,80 +1,62 @@
+
+
 .card {
   width: 308px;
-  padding: 0;
   border: 2px solid #e1e1e1;
   margin-top: 26px;
   margin-bottom: 26px;
   height: 380px;
-
+  margin-left: 26px;
   
 
-
-}
-.fadeIn {
-  opacity: 1;
-  transition: opacity .25s ease-in-out;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
-  }
-
-  .fadeIn:hover {
-     opacity: 0.5;
-     }
-
-.card a{
-  text-decoration: none
 }
 
-.cardImage{
-  background-image: url('./assets/temp.png');
+.card a {
+  text-decoration: none;
+}
+
+.cardImage {
+  background-image: url("./assets/temp.png");
   min-height: 150px;
   min-width: 100%;
-
 }
-.cardEntry{
-
-  padding:19px 19px 5px 19px
- 
+.cardEntry {
+  padding: 19px 19px 5px 19px;
 }
 
-.cardHeading{
-display: flex;
-flex-direction: row;
+.cardHeading {
+  display: flex;
+  flex-direction: row;
 }
 
-.cardHeading img{
-  
-
-height: 50px;
-padding-right:10px; 
+.cardHeading img {
+  height: 50px;
+  padding-right: 10px;
 }
-.cardTitle{
-  width:80%;
+.cardTitle {
+  width: 80%;
 }
 
-
-.cardTitle h1{
+.cardTitle h1 {
   margin: 0;
-color: #3A3A3A;
-font-size: 23px;  
-font-family: Arial;
-font-weight: "bold";
-
-
+  color: #3a3a3a;
+  font-size: 23px;
+  font-family: Arial;
+  font-weight: "bold";
 }
-.cardTitle h2{
+.cardTitle h2 {
   margin: 0;
-  width:100%;
+  width: 100%;
   text-transform: uppercase;
   color: #adadad;
 
-  font-size: 12px;  
+  font-size: 12px;
   font-family: Arial;
-  font-weight: "bold"; 
+  font-weight: "bold";
 }
-.cardText p{
-  color: #3A3A3A;
-  font-size: 12px;  
+.cardText p {
+  color: #3a3a3a;
+  font-size: 12px;
   font-family: Arial;
   font-weight: "bold";
   padding-top: 19px;
@@ -82,65 +64,82 @@ font-weight: "bold";
   margin: 0;
 }
 
-.heart{
+.heart {
   height: 20px;
 }
 
- button{
-
- all:unset
- 
+button {
+  all: unset;
 }
 
-.direction-buttons{
-  width:40px;
+.direction-buttons {
+  width: 40px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.direction-buttons img{
-
+.direction-buttons img {
   padding-left: 2px;
   padding-right: 2px;
-  width:15px
-
+  width: 15px;
 }
 
-.deck{
+.deck {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  padding-left:26px;
-  padding-right:26px;
-  
- 
-  
-  
-}
-.navigation{
-  display: flex;
-  justify-content: center;
-  padding-bottom: 26px
-  
-}
-.middleCard{
   padding-left: 26px;
   padding-right: 26px;
-  
+}
+.navigation {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 26px;
+}
+.firstCard {
+  margin-left: 0;
+}
+
+.canvas {
+  margin: auto;
+  width: 50%;
+  width: fit-content;
+  background-color: #f6f6f6;
+  border:2px solid #3a3a3a ;
 
 }
 
-.canvas{
-  display: inline-block;
-
-  border: 2px solid  rgb(206, 206, 206);
-  width: fit-content; 
-  background-color: #f6f6f6
-
-}
-
-.hiddenButton{
+.hiddenButton {
   visibility: hidden;
+}
+.app {
+  padding-top: 26px;
 
+  margin: auto;
+  background-color: #f6f6f6;
+  height: 100%;
 }
 
+@media only screen and (max-width: 1000px) {
+
+  .app{
+    background-color: #f6f6f6;
+  }
+
+  .canvas {
+    width:400px;
+    background-color: #f6f6f6;
+  }
+  .deck{
+    background-color: #f6f6f6;
+
+
+  }
+  .card{
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  .firstCard{
+    margin-top: 26px;
+  }
+}

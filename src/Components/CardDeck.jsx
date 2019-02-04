@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import Card from './Card';
 
+// configurable amount of cards to display
+const numberofCards = 3;
+
+
 export default class CardDeck extends Component {
   state = {
     start: 0,
-    end: 3,
     cards: [],
     reachedEnd: false,
   };
 
   componentDidMount() {
     this.getCards();
+    this.checkReachedEnd();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -24,17 +28,21 @@ export default class CardDeck extends Component {
 
 
   getCards = async () => {
-    const { start, end } = this.state;
+    const { start } = this.state;
+    const end = start + numberofCards;
+
     const cards = await api.fetchCards(start, end);
     this.setState({ cards });
   };
 
 
   checkReachedEnd=async () => {
-    const { start, end } = this.state;
+    const { start } = this.state;
+    const end = start + numberofCards;
 
-    const nextStart = start + 3;
-    const nextEnd = end + 3;
+
+    const nextStart = start + numberofCards;
+    const nextEnd = end + numberofCards;
 
     const cards = await api.fetchCards(nextStart, nextEnd);
     if (cards.length === 0) this.setState({ reachedEnd: true });
@@ -44,9 +52,9 @@ export default class CardDeck extends Component {
     changePage = (direction) => {
       const { start, end, reachedEnd } = this.state;
       if (direction === 'left' && start !== 0) {
-        this.setState({ start: start - 3, end: end - 3 });
+        this.setState({ start: start - numberofCards, end: end - numberofCards });
       } else if (direction === 'right' && !reachedEnd) {
-        this.setState({ start: start + 3, end: end + 3 });
+        this.setState({ start: start + numberofCards, end: end + numberofCards });
       }
       return null;
     };
@@ -58,21 +66,22 @@ export default class CardDeck extends Component {
       return (
         <div className="canvas">
           <div className="deck">
-            {cards.map((card, index) => ((index === 1) ? (
-              <div className="middleCard">
-                {' '}
-                <Card key={card.id} card={card} />
-              </div>
-            ) : (
-              <Card key={card.id} card={card} />
-            )))}
+            {cards.map((card, index) => (
+              // <div className="firstCard">
+              //   {' '}
+              //   <Card key={card.id} card={card} />
+              // </div>
+            // ) : (
+              <Card key={card.id} card={card} index={index} />
+            // )))}
+            ))}
           </div>
           <div className="navigation">
             <div className="direction-buttons">
-              <button className={start === 0 ? 'hiddenButton' : 'somethingElse'} type="button" onClick={() => this.changePage('left')}>
+              <button className={start === 0 ? 'hiddenButton' : 'visibleNavButton'} type="button" onClick={() => this.changePage('left')}>
                 <img alt="left button" src={require('../assets/left.png')} />
               </button>
-              <button className={reachedEnd ? 'hiddenButton' : 'somethingElse'} type="button" onClick={() => this.changePage('right')} disabled={reachedEnd}>
+              <button className={reachedEnd ? 'hiddenButton' : 'visibleNavButton'} type="button" onClick={() => this.changePage('right')} disabled={reachedEnd}>
                 <img alt="right button" src={require('../assets/right.png')} />
               </button>
 

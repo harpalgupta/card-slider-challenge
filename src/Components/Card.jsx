@@ -20,22 +20,28 @@ export default class Card extends Component {
     this.setState({ liked: is_liked }, () => { api.likeCard(id, is_liked); });
   }
 
+  addDefaultSrc(ev) {
+    ev.target.src = '../assets/temp.png';
+  }
+
 
   render() {
-    const { card } = this.props;
+    const { card, index } = this.props;
     const { liked } = this.state;
     const {
       id, title, subtitle, text, image_url, href,
     } = card;
-    return (
-      <div className="card">
 
-        <a href={href}>
-          <img alt="card header" className="cardImage" src={`${image_url}&${id}`} onError={require('../assets/temp.png')} />
+
+    return (
+      <div className={index === 0 ? 'card firstCard' : 'card'}>
+
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <img alt="card header" className="cardImage" src={`${image_url}&${id}`} onError={this.addDefaultSrc} />
         </a>
 
         <div className="cardEntry">
-          <a href={href}>
+          <a href={href} target="_blank" rel="noopener noreferrer">
             <div className="cardHeading">
               <img alt="avatar" src={require('../assets/avatar.png')} />
               <div className="cardTitle">
