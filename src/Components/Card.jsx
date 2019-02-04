@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
+import Parser from 'html-react-parser';
+
 
 
 export default class Card extends Component {
@@ -50,7 +52,7 @@ export default class Card extends Component {
               </div>
             </div>
             <div className="cardText">
-              <p>{text}</p>
+              <p>{Parser(text)}</p>
             </div>
           </a>
 
