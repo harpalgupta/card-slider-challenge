@@ -37,10 +37,13 @@ export default class Card extends Component {
 
     return (
       <div className={index === 0 ? 'card firstCard' : 'card'}>
+        <div className="bg" >
 
         <a href={href} target="_blank" rel="noopener noreferrer">
           <img alt="card header" className="cardImage" src={`${image_url}&${id}`} onError={this.addDefaultSrc} />
         </a>
+        </div>
+
 
         <div className="cardEntry">
           <a href={href} target="_blank" rel="noopener noreferrer">
