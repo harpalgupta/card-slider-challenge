@@ -19,7 +19,7 @@ This challenge goal is to build a component which displays content using the Car
 
 **Running Tests**
 
-- ensure tou start json server using npm run start-api
+- ensure you start json server using npm run start-api
 - ensure you start react app  using npm start
 - launch cypress using npm run cy:open (which will graphically run through tests)
 
