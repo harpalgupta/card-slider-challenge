@@ -3,7 +3,7 @@
 This challenge goal is to build a component which displays content using the Card design pattern, according to the specs included. This component should show a fixed (configurable) number of cards at a time, and slide for more when the user clicks the arrow buttons.
 
 
-##PreRequisites
+## PreRequisites
   
 * clone this repo
   -> git clone
