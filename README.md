@@ -4,7 +4,7 @@ This challenge goal is to build a component which displays content using the Car
 
 
 ##PreRequisites
-  - node
+  
 * clone this repo
   -> git clone
 
