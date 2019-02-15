@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import * as api from '../api';
 import Parser from 'html-react-parser';
-
+import * as api from '../api';
 
 
 export default class Card extends Component {
@@ -37,11 +36,11 @@ export default class Card extends Component {
 
     return (
       <div className={index === 0 ? 'card firstCard' : 'card'}>
-        <div className="bg" >
+        <div className="bg">
 
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          <img alt="card header" className="cardImage" src={`${image_url}&${id}`} onError={this.addDefaultSrc} />
-        </a>
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            <img alt="card header" className="cardImage" src={`${image_url}&${id}`} onError={this.addDefaultSrc} />
+          </a>
         </div>
 
 
@@ -57,20 +56,25 @@ export default class Card extends Component {
             <div className="cardText">
               <p>{Parser(text)}</p>
             </div>
+            <div className="cardFooter">
+              {liked
+                ? (
+                  <button type="button" onClick={(e) => { this.setLike(id, false); e.preventDefault(); }}>
+                    <img alt="liked heart" className="heart" src={require('../assets/heart.png')} />
+                  </button>
+                )
+                : (
+                  <button type="button" onClick={(e) => { this.setLike(id, true); e.preventDefault(); }}>
+                    <img alt="unliked heart" className="heart" src={require('../assets/emptyHeart.png')} />
+                  </button>
+                )
+        }
+              <img className="emptySpace" src={require('../assets/empty.png')} alt="emptySpace" />
+
+            </div>
+
           </a>
 
-          {liked
-            ? (
-              <button type="button" onClick={() => { this.setLike(id, false); }}>
-                <img alt="liked heart" className="heart" src={require('../assets/heart.png')} />
-              </button>
-            )
-            : (
-              <button type="button" onClick={() => { this.setLike(id, true); }}>
-                <img alt="unliked heart" className="heart" src={require('../assets/emptyHeart.png')} />
-              </button>
-            )
-        }
 
         </div>
       </div>

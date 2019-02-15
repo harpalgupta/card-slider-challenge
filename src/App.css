@@ -23,14 +23,18 @@
 }
 
 .bg{
-  background-image: url("./assets/temp.png");
-  -moz-background-image: url("./assets/temp.png");
-  min-height: 150px;
+background: #dfb1d9;
+background-image: url('./assets/empty.png');
+  height: 154px;
   min-width: 100%;
+  display:block;
+
 
 }
 .cardEntry {
   padding: 19px 19px 5px 19px;
+  margin-bottom:19px; 
+  height: auto;
 }
 
 .cardHeading {
@@ -80,6 +84,12 @@
 button {
   all: unset;
 }
+button:focus{
+  outline: none !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;  
+}
 
 .direction-buttons {
   width: 40px;
@@ -99,6 +109,9 @@ button {
   justify-content: center;
   padding-left: 26px;
   padding-right: 26px;
+  min-height: 380px;
+  min-width: 150px;
+
 
 
 }
@@ -116,7 +129,7 @@ button {
   width: 50%;
   width: fit-content;
   background-color: #f6f6f6;
-  border:2px solid #3a3a3a ;
+  border:2px solid #77757562 ;
 
 }
 
@@ -131,6 +144,12 @@ button {
   height: 100vh;
   
    
+}
+.cardFooter{
+  height: inherit;
+}
+
+.emptySpace{
 }
 
 /* img {
@@ -155,10 +174,12 @@ button {
 }
 
 
+
 @media only screen and (max-width: 1000px) {
 
   .app{
     background-color: #f6f6f6;
+    height: 100%;
   }
 
   .canvas {
