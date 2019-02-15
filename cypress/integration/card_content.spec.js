@@ -55,11 +55,10 @@ describe('check navigation right button is not visible when reached end', () => 
     // check for 3 cards displayed
     cy.get('.visibleNavButton').first().click();
     cy.get('.visibleNavButton').eq(1).click();
-    //only 1 button should be visible
-    cy.get('.visibleNavButton').should('have.length',1);
+    // only 1 button should be visible
+    cy.get('.visibleNavButton').should('have.length', 1);
 
     cy.get('.visibleNavButton>img').should('have.attr', 'alt', 'left button');
-
   });
 });
 
@@ -74,7 +73,6 @@ describe('check cards', () => {
   after(() => {
     cy.readFile('./data/originalDB.json').then((contents) => {
       cy.writeFile('./data/db.json', contents);
-      
     });
   }, 20000);
 
@@ -91,16 +89,16 @@ describe('check cards', () => {
   });
 
   it('check like is true', () => {
-    cy.get('.cardEntry>button>.heart')
+    cy.get('button>.heart')
       .first()
       .should('have.attr', 'alt', 'liked heart');
   });
 
   it('check like functionality', () => {
-    cy.get('.cardEntry>button')
+    cy.get('button')
       .first()
       .click();
-    cy.get('.cardEntry>button>.heart')
+    cy.get('button>.heart')
       .first()
       .should('have.attr', 'alt', 'unliked heart');
   });

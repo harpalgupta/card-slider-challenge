@@ -70,9 +70,12 @@ export default class Card extends Component {
                 )
         }
               <img className="emptySpace" src={require('../assets/empty.png')} alt="emptySpace" />
+              <div className="emptyFoot">
+                <img src={require('../assets/empty.png')} alt="emptyFoot" />
+
+              </div>
 
             </div>
-            <img className="emptyFoot" src={require('../assets/empty.png')} alt="emptyFoot" />
 
 
           </a>
